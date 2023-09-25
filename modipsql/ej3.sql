@@ -1,0 +1,1 @@
+DELETE FROM "post" WHERE title LIKE 'Gottineta';
