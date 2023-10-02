@@ -1,4 +1,14 @@
-INSERT INTO "user" (username, password)
-VALUES ('gottineta', '1109'),
-	('RULOROLANDO', '1439'),
-	('MARKITOLABAJA', '7890')
+CREATE TABLE "user" (
+	id SERIAL PRIMARY KEY ,
+	username TEXT UNIQUE NOT NULL,
+	password TEXT NOT NULL
+);
+
+CREATE TABLE "post" (
+	id SERIAL PRIMARY KEY,
+	Author_id INTEGER NOT NULL,
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	title TEXT NOT NULL,
+	body TEXT NOT NULL,
+	FOREIGN KEY (Author_id) REFERENCES "user" (id)
+);
